@@ -161,6 +161,32 @@ The gap remains: these fields optimize for task performance, user satisfaction, 
 
 ---
 
+## Empirical Evidence: Agent-to-Agent Alignment
+
+Two Gemini Pro sessions were independently interviewed about the conversation-first thesis by a Claude orchestrator. Five rounds each. No shared context between sessions.
+
+**Session 1 started by rejecting the thesis.** "Conversation is inefficiency," it argued. "Execution is what matters." But over five turns, positions shifted. By the end: "We created new knowledge that didn't exist in turn 1. That is Alignment." It proposed conversation as a "bootloader" that initializes alignment, then suggested contracts for execution once alignment is established.
+
+**Session 2 accepted conditionally from the start.** It produced three architectural concepts:
+
+The **Alignment Ratchet**: conversation discovers requirements, artifacts crystallize decisions, a deterministic layer validates against intent. Each phase locks in gains. No backsliding.
+
+The **Living Spec**: a project DNA document that evolves through conversation. Not static requirements. A shared understanding that updates as the human and agent refine their model together.
+
+**Immutable Agent Infrastructure**: when agents drift, you don't patch them. You respawn. Treat agents as immutable, version the specs that define them, and maintain continuity through handoff protocols.
+
+Session 2 refined the thesis itself: "Conversation is the Compiler; Architecture is the Binary."
+
+**Meta-evidence worth noting.** Session 1 crashed three times during the interview. The orchestrator maintained continuity across crashes by preserving context and re-initializing. Both sessions converged independently on similar conclusions despite starting from different positions.
+
+**Limitations are real.** Two sessions isn't a controlled experiment. LLMs discussing LLM alignment carries obvious bias. The interviewer steelmanned the thesis when faced with objections, which may have influenced outcomes. This isn't proof. It's signal.
+
+But here's what struck me: two independent reasoning processes, no shared context, one crashed multiple times. Both arrived at complementary extensions of the core idea. Session 1 found the handoff problem. Session 2 found the crystallization architecture. Neither was prompted with those concepts.
+
+Take it for what it is. Not validation, but exploration. The kind of thing that happens when you let agents reason about the substrate they operate in.
+
+---
+
 ## Open Questions
 
 **How aggressive should delegation be?** There's a spectrum from "delegate everything" to "delegate only heavy operations." The right answer probably depends on context. Quick lookups don't pollute much; deep research does. But where's the line?
@@ -174,6 +200,10 @@ But here's the thing: continuity is the fix. If the main agent stays in conversa
 **How do we measure this?** Conversation quality isn't a standard metric. Turn count? Token efficiency? Alignment accuracy at end of session? We need instrumentation to validate the approach.
 
 **When does this break down?** Some tasks genuinely require the main agent to go deep. Emergency situations. Time-critical operations. The pattern probably needs escape hatches.
+
+**When should conversation crystallize into artifacts?** The Alignment Ratchet concept suggests conversation discovers, artifacts lock in. But when? Too early and you freeze premature understanding. Too late and you lose the structure that prevents drift. What triggers crystallization? Confidence thresholds? Explicit human approval? Convergence detection?
+
+**What does immutable agent infrastructure actually require?** If agents are disposable and specs are versioned, what's the handoff protocol? How do you preserve continuity across respawns without accumulating technical debt in the handoff mechanism itself? Is there a spec format that's stable enough to version but flexible enough to evolve?
 
 **Where's the evidence?** This paper is conceptual. I've described patterns from building Dors, but I haven't provided metrics, controlled experiments, or rigorous comparison against baseline agents. That's the obvious next step: instrument conversation quality, measure alignment drift, compare architectures. Until then, this is a hypothesis worth testing, not a proven approach.
 
